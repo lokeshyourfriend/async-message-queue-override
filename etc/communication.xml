@@ -6,12 +6,40 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <!-- This override webapi.xml 
+    <route url="/V1/lokeshyourfriend/apimsgqueue-override-async-type-string-topic" 
+           method="POST">
+        <service class="Lokeshyourfriend\AsyncMsgQueueOverride\Model\ApiAsyncHandler"
+                 method="methodWithStringParam"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>    
+    -->
     <topic 
         name="async.lokeshyourfriend.asyncmsgqueueoverride.model.apiasynchandler.methodwithstringparam.post" 
         is_synchronous="false" 
         schema="Lokeshyourfriend\AsyncMsgQueueOverride\Model\AsyncHandler::methodWithStringParam">
         <handler name="async" 
                  type="Lokeshyourfriend\AsyncMsgQueueOverride\Model\AsyncHandler" 
+                 method="methodWithStringParam"/>
+    </topic>
+    <!-- This NOT override webapi.xml 
+    <route url="/V1/lokeshyourfriend/apimsgqueue-override-async-type-string-topic-two" 
+           method="POST">
+        <service class="Lokeshyourfriend\AsyncMsgQueueOverride\Model\ApiAsyncHandlerTwo"
+                 method="methodWithStringParam"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    -->
+    <topic 
+        name="async.V1.lokeshyourfriend.apimsgqueue-override-async-type-string-topic-two.POST" 
+        is_synchronous="false" 
+        schema="Lokeshyourfriend\AsyncMsgQueueOverride\Model\AsyncHandlerTwo::methodWithStringParam">
+        <handler name="async" 
+                 type="Lokeshyourfriend\AsyncMsgQueueOverride\Model\AsyncHandlerTwo" 
                  method="methodWithStringParam"/>
     </topic>
 </config>

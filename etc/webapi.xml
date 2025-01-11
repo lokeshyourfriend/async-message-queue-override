@@ -15,4 +15,12 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route url="/V1/lokeshyourfriend/apimsgqueue-override-async-type-string-topic-two" 
+           method="POST">
+        <service class="Lokeshyourfriend\AsyncMsgQueueOverride\Model\ApiAsyncHandlerTwo"
+                 method="methodWithStringParam"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>
